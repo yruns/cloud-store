@@ -26,6 +26,7 @@ import ${mainPath}.common.utils.R;
  * @date ${datetime}
  */
 @RestController
+@RefreshScope
 @RequestMapping("${moduleName}/${pathName}")
 public class ${className}Controller {
     @Autowired

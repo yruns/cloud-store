@@ -26,6 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Mark sunlightcs@gmail.com
  */
 @RestController
+@RefreshScope
 @RequestMapping("/app")
 @Api("APP测试接口")
 public class AppTestController {

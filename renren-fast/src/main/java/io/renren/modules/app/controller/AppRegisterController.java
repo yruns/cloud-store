@@ -31,6 +31,7 @@ import java.util.Date;
  * @author Mark sunlightcs@gmail.com
  */
 @RestController
+@RefreshScope
 @RequestMapping("/app")
 @Api("APP注册接口")
 public class AppRegisterController {

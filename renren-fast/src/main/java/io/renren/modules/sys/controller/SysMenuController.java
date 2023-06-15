@@ -33,6 +33,7 @@ import java.util.Collections;
  * @author Mark sunlightcs@gmail.com
  */
 @RestController
+@RefreshScope
 @RequestMapping("/sys/menu")
 public class SysMenuController extends AbstractController {
 	@Autowired
