@@ -7,12 +7,15 @@
   <version>1.0.0</version>
   <packaging>pom</packaging>
 
+
   <modules>
     <module>coupon-service</module>
     <module>order-service</module>
     <module>product-service</module>
     <module>ware-service</module>
     <module>user-service</module>
+    <module>renren-fast</module>
+    <module>renren-generator</module>
   </modules>
 
 </project>
