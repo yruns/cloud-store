@@ -49,6 +49,13 @@ spring:
           filters:
             - RewritePath=/api/(?<segment>/?.*),/$\{segment}
 
+        - id: third-party-service
+          uri: http://localhost:3333
+          predicates:
+            - Path=/api/thirdparty/**
+          filters:
+            - RewritePath=/api/thirdparty(?<segment>/?.*),/$\{segment}
+
         - id: renren-fast
           uri: http://localhost:8080
           predicates:

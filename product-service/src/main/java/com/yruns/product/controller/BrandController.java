@@ -1,11 +1,13 @@
 package com.yruns.product.controller;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Map;
 
 // import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import com.yruns.product.entity.BrandEntity;
@@ -13,6 +15,7 @@ import com.yruns.product.service.BrandService;
 import com.yruns.common.utils.PageUtils;
 import com.yruns.common.utils.R;
 
+import javax.validation.Valid;
 
 
 /**
@@ -43,10 +46,21 @@ public class BrandController {
     /**
      * 修改
      */
-    @PutMapping("/update")
+    @PostMapping("/update/status")
     // @RequiresPermissions("product:brand:update")
     public R update(@RequestBody BrandEntity brand){
         brandService.updateById(brand);
+
+        return R.ok();
+    }
+
+    /**
+     * 新增
+     */
+    @RequestMapping("/save")
+    // @RequiresPermissions("product:brand:save")
+    public R save(@Valid @RequestBody BrandEntity brand){
+        brandService.save(brand);
 
         return R.ok();
     }
@@ -63,16 +77,6 @@ public class BrandController {
         return R.ok().put("brand", brand);
     }
 
-    /**
-     * 保存
-     */
-    @RequestMapping("/save")
-    // @RequiresPermissions("product:brand:save")
-    public R save(@RequestBody BrandEntity brand){
-		brandService.save(brand);
-
-        return R.ok();
-    }
 
 
 
