@@ -20,11 +20,23 @@
 	</properties>
 
 	<dependencies>
+		<!--腾讯云 对象存储-->
+		<dependency>
+			<groupId>com.qcloud</groupId>
+			<artifactId>cos_api</artifactId>
+			<version>5.6.133</version>
+		</dependency>
 
 		<dependency>
 			<groupId>com.yruns</groupId>
 			<artifactId>common-tools</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.baomidou</groupId>
+					<artifactId>mybatis-plus-boot-starter</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<dependency>

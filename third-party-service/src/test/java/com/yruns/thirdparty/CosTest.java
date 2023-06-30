@@ -1,4 +1,4 @@
-package com.yruns.product;
+package com.yruns.thirdparty;
 
 import com.qcloud.cos.COSClient;
 import com.qcloud.cos.ClientConfig;
@@ -7,7 +7,6 @@ import com.qcloud.cos.auth.COSCredentials;
 import com.qcloud.cos.http.HttpProtocol;
 import com.qcloud.cos.model.*;
 import com.qcloud.cos.region.Region;
-import com.yruns.product.service.BrandService;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,8 +24,6 @@ import java.io.IOException;
 @SpringBootTest
 public class CosTest {
 
-    @Autowired
-    BrandService brandService;
 
     private String bucketName;
     private COSClient cosClient;
