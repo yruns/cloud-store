@@ -1,21 +1,20 @@
 package com.yruns.product.controller;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.Map;
 
 // import org.apache.shiro.authz.annotation.RequiresPermissions;
+import com.yruns.common.valid.AddGroup;
+import com.yruns.common.valid.UpdateStatusGroup;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
-import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import com.yruns.product.entity.BrandEntity;
 import com.yruns.product.service.BrandService;
 import com.yruns.common.utils.PageUtils;
 import com.yruns.common.utils.R;
-
-import javax.validation.Valid;
 
 
 /**
@@ -44,9 +43,20 @@ public class BrandController {
     }
 
     /**
-     * 修改
+     * 修改状态
      */
     @PostMapping("/update/status")
+    // @RequiresPermissions("product:brand:update")
+    public R updateStatus(@Validated({UpdateStatusGroup.class}) @RequestBody BrandEntity brand){
+        brandService.updateById(brand);
+
+        return R.ok();
+    }
+
+    /**
+     * 修改
+     */
+    @PostMapping("/update")
     // @RequiresPermissions("product:brand:update")
     public R update(@RequestBody BrandEntity brand){
         brandService.updateById(brand);
@@ -59,7 +69,7 @@ public class BrandController {
      */
     @RequestMapping("/save")
     // @RequiresPermissions("product:brand:save")
-    public R save(@Valid @RequestBody BrandEntity brand){
+    public R save(@Validated({AddGroup.class}) @RequestBody BrandEntity brand){
         brandService.save(brand);
 
         return R.ok();

@@ -5,10 +5,15 @@ import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.io.Serializable;
 
+import com.yruns.common.valid.AddGroup;
+import com.yruns.common.valid.ListValue;
+import com.yruns.common.valid.UpdateGroup;
+import com.yruns.common.valid.UpdateStatusGroup;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 
 /**
  * 品牌
@@ -25,12 +30,14 @@ public class BrandEntity implements Serializable {
 	/**
 	 * 品牌id
 	 */
+	@NotNull(message = "修改时必须指定id", groups = {UpdateGroup.class})
+	@Null(message = "新增不能指定id", groups = {AddGroup.class})
 	@TableId
 	private Long brandId;
 	/**
 	 * 品牌名
 	 */
-	@NotBlank
+	@NotBlank(message = "品牌名必须提交", groups = {AddGroup.class, UpdateGroup.class})
 	private String name;
 	/**
 	 * 品牌logo地址
@@ -43,6 +50,8 @@ public class BrandEntity implements Serializable {
 	/**
 	 * 显示状态[0-不显示；1-显示]
 	 */
+	@NotNull(groups = {AddGroup.class, UpdateGroup.class, UpdateStatusGroup.class}, message = "不能为空")
+	@ListValue(vals = {0, 1}, groups = {AddGroup.class, UpdateGroup.class, UpdateStatusGroup.class})
 	private Integer showStatus;
 	/**
 	 * 检索首字母
