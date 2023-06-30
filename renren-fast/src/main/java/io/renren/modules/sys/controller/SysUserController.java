@@ -35,7 +35,7 @@ import java.util.Map;
  * @author Mark sunlightcs@gmail.com
  */
 @RestController
-@RefreshScope
+
 @RequestMapping("/sys/user")
 public class SysUserController extends AbstractController {
 	@Autowired

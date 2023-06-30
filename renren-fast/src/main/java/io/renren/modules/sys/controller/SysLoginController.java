@@ -35,7 +35,7 @@ import java.util.Map;
  * @author Mark sunlightcs@gmail.com
  */
 @RestController
-@RefreshScope
+
 public class SysLoginController extends AbstractController {
 	@Autowired
 	private SysUserService sysUserService;

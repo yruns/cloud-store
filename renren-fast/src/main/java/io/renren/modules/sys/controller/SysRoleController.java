@@ -30,7 +30,7 @@ import java.util.Map;
  * @author Mark sunlightcs@gmail.com
  */
 @RestController
-@RefreshScope
+
 @RequestMapping("/sys/role")
 public class SysRoleController extends AbstractController {
 	@Autowired

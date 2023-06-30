@@ -27,7 +27,7 @@ import java.util.Map;
  * @author Mark sunlightcs@gmail.com
  */
 @RestController
-@RefreshScope
+
 @RequestMapping("/sys/config")
 public class SysConfigController extends AbstractController {
 	@Autowired

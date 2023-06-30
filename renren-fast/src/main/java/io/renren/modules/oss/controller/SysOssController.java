@@ -38,7 +38,7 @@ import java.util.Map;
  * @author Mark sunlightcs@gmail.com
  */
 @RestController
-@RefreshScope
+
 @RequestMapping("sys/oss")
 public class SysOssController {
 	@Autowired

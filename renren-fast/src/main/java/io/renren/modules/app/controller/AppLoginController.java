@@ -31,7 +31,7 @@ import java.util.Map;
  * @author Mark sunlightcs@gmail.com
  */
 @RestController
-@RefreshScope
+
 @RequestMapping("/app")
 @Api("APP登录接口")
 public class AppLoginController {
